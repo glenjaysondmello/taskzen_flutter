@@ -1,0 +1,181 @@
+child: Text(
+    "Hello World!",
+    style: TextStyle(
+        color: Colors.green,
+        fontSize: 20,
+        fontWeight: FontWeight.bold,
+    ),
+),
+
+Center(
+          child: Container(
+            height: 200,
+            width: 200,
+            decoration: BoxDecoration(
+              color: const Color.fromARGB(255, 104, 174, 209),
+              borderRadius: BorderRadius.circular(20),
+            ),
+            padding: EdgeInsets.all(25),
+            child: Icon(Icons.favorite, color: Colors.white, size: 64),
+          ),
+        ),
+
+body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Container(height: 200, width: 200, color: Colors.cyan),
+            Container(height: 200, width: 200, color: Colors.amber),
+            Container(height: 200, width: 200, color: Colors.blueGrey),
+          ],
+        ),
+
+body: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Container(height: 200, width: 200, color: Colors.cyan),
+            Container(height: 100, width: 100, color: Colors.amber),
+            Container(height: 50, width: 50, color: Colors.blueGrey),
+          ],
+        ),
+
+body: Column(
+          children: [
+            Expanded(child: Container(color: Colors.cyan)),
+            Expanded(flex: 2, child: Container(color: Colors.amber)),
+            Expanded(child: Container(color: Colors.blueGrey)),
+          ],
+        ),
+
+body: Row(
+          children: [
+            Expanded(child: Container(color: Colors.cyan)),
+            Expanded(flex: 2, child: Container(color: Colors.amber)),
+            Expanded(child: Container(color: Colors.blueGrey)),
+          ],
+        ),
+
+body: ListView(
+          children: [
+            Container(height: 500, width: 500, color: Colors.cyan),
+            Container(height: 500, width: 500, color: Colors.amber),
+            Container(height: 500, width: 500, color: Colors.blueGrey),
+          ],
+        ),
+
+body: ListView(
+          scrollDirection: Axis.horizontal,
+          children: [
+            Container(width: 500, color: Colors.cyan),
+            Container(width: 500, color: Colors.amber),
+            Container(width: 500, color: Colors.blueGrey),
+          ],
+        ),
+
+body: ListView.builder(
+          itemCount: 10,
+          itemBuilder: (context, index) =>
+              ListTile(title: Text(index.toString())),
+        ),
+
+//
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  MyApp({super.key});
+  final List names = ["Glen", "Jayson", "Dmello"];
+
+  @override
+body: ListView.builder(
+          itemCount: names.length,
+          itemBuilder: (context, index) => ListTile(title: Text(names[index])),
+        ),
+//
+
+body: GridView.builder(
+          itemCount: 64,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 4,
+          ),
+          itemBuilder: (context, index) =>
+              Container(color: Colors.amber, margin: EdgeInsets.all(2)),
+        ),
+
+body: Stack(
+          alignment: Alignment.center,
+          children: [
+            Container(height: 200, width: 200, color: Colors.cyan),
+            Container(height: 100, width: 100, color: Colors.amber),
+            Container(height: 50, width: 50, color: Colors.blueGrey),
+          ],
+        ),
+
+//
+MyApp({super.key});
+  final List names = ["Glen", "Jayson", "Dmello"];
+
+  void userTapped() {
+    print("user tapped");
+  }
+
+body: Center(
+          child: GestureDetector(
+            onTap: () => {userTapped()},
+            child: Container(
+              height: 200,
+              width: 200,
+              color: Colors.amber,
+              child: Center(child: Text("Tap Me!")),
+            ),
+          ),
+        ),
+//
+
+//
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  MyApp({super.key});
+  final List names = ["Glen", "Jayson", "Dmello"];
+
+  void userTapped() {
+    print("user tapped");
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          title: Text("My App Bar"),
+          centerTitle: true,
+          backgroundColor: const Color.fromARGB(255, 104, 174, 209),
+          elevation: 0,
+          leading: Icon(Icons.menu),
+          actions: [IconButton(onPressed: () {}, icon: Icon(Icons.logout))],
+        ),
+        body: Center(
+          child: GestureDetector(
+            onTap: () => {userTapped()},
+            child: Container(
+              height: 200,
+              width: 200,
+              color: Colors.amber,
+              child: Center(child: Text("Tap Me!")),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+//
+
+
