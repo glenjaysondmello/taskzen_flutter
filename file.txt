@@ -178,4 +178,88 @@ class MyApp extends StatelessWidget {
 }
 //
 
+body: Center(
+        child: ElevatedButton(
+          onPressed: () => {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Secondpage()),
+            ),
+          },
+          child: Text(
+            "Go to Second Page",
+            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+          ),
+        ),
+      ),
+
+//
+Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Firstpage(),
+      routes: {
+        "/firstpage": (context) => Firstpage(),
+        "/secondpage": (context) => Secondpage(),
+      },
+    );
+  }
+}
+
+body: Center(
+        child: ElevatedButton(
+          onPressed: () => {Navigator.pushNamed(context, "/secondpage")},
+          child: Text(
+            "Go to Second Page",
+            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+          ),
+        ),
+      ),
+//
+
+//
+import 'package:flutter/material.dart';
+
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Home Page"),
+        centerTitle: true,
+        backgroundColor: Colors.cyanAccent,
+      ),
+    );
+  }
+}
+
+drawer: Drawer(
+        backgroundColor: Colors.deepPurple[100],
+        child: Column(
+          children: [
+            DrawerHeader(child: Icon(Icons.favorite, size: 48)),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text("H O M E"),
+              onTap: () => {
+                Navigator.pop(context),
+                Navigator.pushNamed(context, "/homepage"),
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.settings),
+              title: Text("S E T T I N G S"),
+              onTap: () => {
+                Navigator.pop(context),
+                Navigator.pushNamed(context, "/settingspage"),
+              },
+            ),
+          ],
+        ),
+      ),
+//
+
+
 
