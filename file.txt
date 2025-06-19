@@ -7,6 +7,7 @@ child: Text(
     ),
 ),
 
+//
 Center(
           child: Container(
             height: 200,
@@ -19,7 +20,7 @@ Center(
             child: Icon(Icons.favorite, color: Colors.white, size: 64),
           ),
         ),
-
+//
 body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -261,5 +262,128 @@ drawer: Drawer(
       ),
 //
 
+//
+import 'package:flutter/material.dart';
+import 'package:new_project/pages/home_page.dart';
+import 'package:new_project/pages/profile_page.dart';
+import 'package:new_project/pages/settings_page.dart';
 
+class FirstPage extends StatefulWidget {
+  const FirstPage({super.key});
+
+  @override
+  State<FirstPage> createState() => FirstPageState();
+}
+
+class FirstPageState extends State<FirstPage> {
+  int _selectedIndex = 0;
+
+  void _navigateBottomBar(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  final List _pages = [HomePage(), ProfilePage(), SettingsPage()];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("1st Page"),
+        centerTitle: true,
+        backgroundColor: Colors.cyanAccent,
+      ),
+      body: _pages[_selectedIndex],
+
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
+        onTap: _navigateBottomBar,
+        elevation: 0,
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: "Settings",
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+
+return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: FirstPage(),
+      routes: {
+        "/firstpage": (context) => FirstPage(),
+        "/homepage": (context) => HomePage(),
+        "/settingspage": (context) => SettingsPage(),
+        "/profilepage": (context) => ProfilePage(),
+      },
+    );
+
+import 'package:flutter/material.dart';
+
+class SettingsPage extends StatelessWidget {
+  const SettingsPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(body: Center(child: Text("Settings Page")));
+  }
+}
+//
+
+//
+import 'package:flutter/material.dart';
+
+class CounterPage extends StatefulWidget {
+  const CounterPage({super.key});
+
+  @override
+  State<CounterPage> createState() => _CounterPageState();
+}
+
+class _CounterPageState extends State<CounterPage> {
+  int _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Counter"),
+        centerTitle: true,
+        backgroundColor: Colors.deepPurple,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("You pushed the button this many times"),
+            Text(_counter.toString(), style: TextStyle(fontSize: 40)),
+            ElevatedButton(
+              onPressed: _incrementCounter,
+              child: Icon(Icons.add, size: 28),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+@override
+  Widget build(BuildContext context) {
+    return MaterialApp(debugShowCheckedModeBanner: false, home: CounterPage());
+  }
+//
 
