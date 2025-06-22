@@ -1,0 +1,644 @@
+child: Text(
+    "Hello World!",
+    style: TextStyle(
+        color: Colors.green,
+        fontSize: 20,
+        fontWeight: FontWeight.bold,
+    ),
+),
+
+//
+Center(
+          child: Container(
+            height: 200,
+            width: 200,
+            decoration: BoxDecoration(
+              color: const Color.fromARGB(255, 104, 174, 209),
+              borderRadius: BorderRadius.circular(20),
+            ),
+            padding: EdgeInsets.all(25),
+            child: Icon(Icons.favorite, color: Colors.white, size: 64),
+          ),
+        ),
+//
+body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Container(height: 200, width: 200, color: Colors.cyan),
+            Container(height: 200, width: 200, color: Colors.amber),
+            Container(height: 200, width: 200, color: Colors.blueGrey),
+          ],
+        ),
+
+body: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Container(height: 200, width: 200, color: Colors.cyan),
+            Container(height: 100, width: 100, color: Colors.amber),
+            Container(height: 50, width: 50, color: Colors.blueGrey),
+          ],
+        ),
+
+body: Column(
+          children: [
+            Expanded(child: Container(color: Colors.cyan)),
+            Expanded(flex: 2, child: Container(color: Colors.amber)),
+            Expanded(child: Container(color: Colors.blueGrey)),
+          ],
+        ),
+
+body: Row(
+          children: [
+            Expanded(child: Container(color: Colors.cyan)),
+            Expanded(flex: 2, child: Container(color: Colors.amber)),
+            Expanded(child: Container(color: Colors.blueGrey)),
+          ],
+        ),
+
+body: ListView(
+          children: [
+            Container(height: 500, width: 500, color: Colors.cyan),
+            Container(height: 500, width: 500, color: Colors.amber),
+            Container(height: 500, width: 500, color: Colors.blueGrey),
+          ],
+        ),
+
+body: ListView(
+          scrollDirection: Axis.horizontal,
+          children: [
+            Container(width: 500, color: Colors.cyan),
+            Container(width: 500, color: Colors.amber),
+            Container(width: 500, color: Colors.blueGrey),
+          ],
+        ),
+
+body: ListView.builder(
+          itemCount: 10,
+          itemBuilder: (context, index) =>
+              ListTile(title: Text(index.toString())),
+        ),
+
+//
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  MyApp({super.key});
+  final List names = ["Glen", "Jayson", "Dmello"];
+
+  @override
+body: ListView.builder(
+          itemCount: names.length,
+          itemBuilder: (context, index) => ListTile(title: Text(names[index])),
+        ),
+//
+
+body: GridView.builder(
+          itemCount: 64,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 4,
+          ),
+          itemBuilder: (context, index) =>
+              Container(color: Colors.amber, margin: EdgeInsets.all(2)),
+        ),
+
+body: Stack(
+          alignment: Alignment.center,
+          children: [
+            Container(height: 200, width: 200, color: Colors.cyan),
+            Container(height: 100, width: 100, color: Colors.amber),
+            Container(height: 50, width: 50, color: Colors.blueGrey),
+          ],
+        ),
+
+//
+MyApp({super.key});
+  final List names = ["Glen", "Jayson", "Dmello"];
+
+  void userTapped() {
+    print("user tapped");
+  }
+
+body: Center(
+          child: GestureDetector(
+            onTap: () => {userTapped()},
+            child: Container(
+              height: 200,
+              width: 200,
+              color: Colors.amber,
+              child: Center(child: Text("Tap Me!")),
+            ),
+          ),
+        ),
+//
+
+//
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  MyApp({super.key});
+  final List names = ["Glen", "Jayson", "Dmello"];
+
+  void userTapped() {
+    print("user tapped");
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          title: Text("My App Bar"),
+          centerTitle: true,
+          backgroundColor: const Color.fromARGB(255, 104, 174, 209),
+          elevation: 0,
+          leading: Icon(Icons.menu),
+          actions: [IconButton(onPressed: () {}, icon: Icon(Icons.logout))],
+        ),
+        body: Center(
+          child: GestureDetector(
+            onTap: () => {userTapped()},
+            child: Container(
+              height: 200,
+              width: 200,
+              color: Colors.amber,
+              child: Center(child: Text("Tap Me!")),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+//
+
+body: Center(
+        child: ElevatedButton(
+          onPressed: () => {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Secondpage()),
+            ),
+          },
+          child: Text(
+            "Go to Second Page",
+            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+          ),
+        ),
+      ),
+
+//
+Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Firstpage(),
+      routes: {
+        "/firstpage": (context) => Firstpage(),
+        "/secondpage": (context) => Secondpage(),
+      },
+    );
+  }
+}
+
+body: Center(
+        child: ElevatedButton(
+          onPressed: () => {Navigator.pushNamed(context, "/secondpage")},
+          child: Text(
+            "Go to Second Page",
+            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+          ),
+        ),
+      ),
+//
+
+//
+import 'package:flutter/material.dart';
+
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Home Page"),
+        centerTitle: true,
+        backgroundColor: Colors.cyanAccent,
+      ),
+    );
+  }
+}
+
+drawer: Drawer(
+        backgroundColor: Colors.deepPurple[100],
+        child: Column(
+          children: [
+            DrawerHeader(child: Icon(Icons.favorite, size: 48)),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text("H O M E"),
+              onTap: () => {
+                Navigator.pop(context),
+                Navigator.pushNamed(context, "/homepage"),
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.settings),
+              title: Text("S E T T I N G S"),
+              onTap: () => {
+                Navigator.pop(context),
+                Navigator.pushNamed(context, "/settingspage"),
+              },
+            ),
+          ],
+        ),
+      ),
+//
+
+//
+import 'package:flutter/material.dart';
+import 'package:new_project/pages/home_page.dart';
+import 'package:new_project/pages/profile_page.dart';
+import 'package:new_project/pages/settings_page.dart';
+
+class FirstPage extends StatefulWidget {
+  const FirstPage({super.key});
+
+  @override
+  State<FirstPage> createState() => FirstPageState();
+}
+
+class FirstPageState extends State<FirstPage> {
+  int _selectedIndex = 0;
+
+  void _navigateBottomBar(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  final List _pages = [HomePage(), ProfilePage(), SettingsPage()];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("1st Page"),
+        centerTitle: true,
+        backgroundColor: Colors.cyanAccent,
+      ),
+      body: _pages[_selectedIndex],
+
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
+        onTap: _navigateBottomBar,
+        elevation: 0,
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: "Settings",
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+
+return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: FirstPage(),
+      routes: {
+        "/firstpage": (context) => FirstPage(),
+        "/homepage": (context) => HomePage(),
+        "/settingspage": (context) => SettingsPage(),
+        "/profilepage": (context) => ProfilePage(),
+      },
+    );
+
+import 'package:flutter/material.dart';
+
+class SettingsPage extends StatelessWidget {
+  const SettingsPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(body: Center(child: Text("Settings Page")));
+  }
+}
+//
+
+//
+import 'package:flutter/material.dart';
+
+class CounterPage extends StatefulWidget {
+  const CounterPage({super.key});
+
+  @override
+  State<CounterPage> createState() => _CounterPageState();
+}
+
+class _CounterPageState extends State<CounterPage> {
+  int _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Counter"),
+        centerTitle: true,
+        backgroundColor: Colors.deepPurple,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("You pushed the button this many times"),
+            Text(_counter.toString(), style: TextStyle(fontSize: 40)),
+            ElevatedButton(
+              onPressed: _incrementCounter,
+              child: Icon(Icons.add, size: 28),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+@override
+  Widget build(BuildContext context) {
+    return MaterialApp(debugShowCheckedModeBanner: false, home: CounterPage());
+  }
+//
+
+//
+import 'package:flutter/material.dart';
+import 'package:new_project/pages/counter_page.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(debugShowCheckedModeBanner: false, home: CounterPage());
+  }
+}
+
+import 'package:flutter/material.dart';
+
+class CounterPage extends StatefulWidget {
+  const CounterPage({super.key});
+
+  @override
+  State<CounterPage> createState() => _CounterPageState();
+}
+
+class _CounterPageState extends State<CounterPage> {
+  int _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Counter"),
+        centerTitle: true,
+        backgroundColor: Colors.deepPurple,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("You pushed the button this many times"),
+            Text(_counter.toString(), style: TextStyle(fontSize: 40)),
+            ElevatedButton(
+              onPressed: _incrementCounter,
+              child: Icon(Icons.add, size: 28),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+//
+
+//
+import 'package:flutter/material.dart';
+
+class TodoPage extends StatefulWidget {
+  const TodoPage({super.key});
+
+  @override
+  State<TodoPage> createState() => _TodoPageState();
+}
+
+class _TodoPageState extends State<TodoPage> {
+  String greetMessage = "";
+
+  TextEditingController myController = TextEditingController();
+
+  void greetUser() {
+    String str = myController.text;
+
+    setState(() {
+      greetMessage = "Hello, $str";
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Container(
+          margin: EdgeInsets.symmetric(horizontal: 20),
+          // margin: EdgeInsets.all(10),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(greetMessage),
+              TextField(
+                controller: myController,
+
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  contentPadding: EdgeInsets.all(10),
+                  hintText: "Type your name",
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 20),
+                child: ElevatedButton(onPressed: greetUser, child: Text("Tap")),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+//
+
+//
+ Widget build(BuildContext context) {
+    return MaterialButton(
+      onPressed: onPressed,
+      color: text == "Save" ? Colors.amber : Colors.amberAccent,
+      child: Text(text),
+    );
+  }
+//
+
+//
+Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.yellow[200],
+      appBar: AppBar(
+        backgroundColor: Colors.yellow,
+        title: Text("TO DO"),
+        centerTitle: true,
+        toolbarHeight: 80,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: createNewTask,
+        backgroundColor: Colors.yellow,
+        child: Icon(Icons.add),
+      ),
+      body: ListView.builder(
+        itemCount: db.todoList.length,
+        itemBuilder: (context, index) {
+          return TodoTile(
+            taskName: db.todoList[index][0],
+            taskComplete: db.todoList[index][1],
+            onChanged: (value) => checkBoxChanged(value, index),
+            deleteTask: (context) => deleteTask(index),
+          );
+        },
+      ),
+    );
+//
+
+//
+Widget build(BuildContext context) {
+    return AlertDialog(
+      backgroundColor: Colors.yellow[100],
+      content: SizedBox(
+        height: 120,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            TextField(
+              controller: controller,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: "Add a new task",
+              ),
+            ),
+
+            SizedBox(height: 12),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                MyButton(text: "Save", onPressed: onSave),
+
+                SizedBox(width: 12),
+
+                MyButton(text: "Cancel", onPressed: onCancel),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+//
+
+//
+import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
+
+class TodoTile extends StatelessWidget {
+  final String taskName;
+  final bool taskComplete;
+  final Function(bool?)? onChanged;
+  final Function(BuildContext) deleteTask;
+
+  const TodoTile({
+    super.key,
+    required this.taskName,
+    required this.taskComplete,
+    required this.onChanged,
+    required this.deleteTask,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(right: 32, left: 32, top: 32),
+      child: Slidable(
+        endActionPane: ActionPane(
+          motion: StretchMotion(),
+          children: [
+            SlidableAction(
+              onPressed: deleteTask,
+              backgroundColor: Colors.red.shade300,
+              icon: Icons.delete,
+              borderRadius: BorderRadius.circular(12),
+            ),
+          ],
+        ),
+        child: Container(
+          padding: EdgeInsets.all(24),
+          decoration: BoxDecoration(
+            color: Colors.yellow,
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: Row(
+            children: [
+              Checkbox(
+                value: taskComplete,
+                onChanged: onChanged,
+                activeColor: Colors.black87,
+              ),
+              Text(
+                taskName,
+                style: TextStyle(
+                  fontSize: 20,
+                  decoration: taskComplete
+                      ? TextDecoration.lineThrough
+                      : TextDecoration.none,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+//
