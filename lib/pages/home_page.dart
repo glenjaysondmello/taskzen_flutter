@@ -73,6 +73,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.yellow,
         title: Text("TO DO"),
         centerTitle: true,
+        toolbarHeight: 80,
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: createNewTask,
