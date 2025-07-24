@@ -4,6 +4,11 @@ class TodoDatabase {
   List todoList = [];
 
   final _myBox = Hive.box("mybox");
+  final String userId;
+
+  TodoDatabase({required this.userId});
+
+  String get userKey => "TODO_$userId";
 
   void createInitialData() {
     todoList = [
@@ -13,10 +18,10 @@ class TodoDatabase {
   }
 
   void loadData() {
-    todoList = _myBox.get("TODO");
+    todoList = _myBox.get(userKey, defaultValue: []) ?? [];
   }
 
   void updateData() {
-    _myBox.put("TODO", todoList);
+    _myBox.put(userKey, todoList);
   }
 }
